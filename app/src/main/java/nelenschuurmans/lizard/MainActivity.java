@@ -29,15 +29,16 @@ public class MainActivity extends Activity {
 
         myWebView = (WebView) findViewById(R.id.webView);
 
-        myWebView.setWebChromeClient(new MyWebChromeClient());
 
         WebSettings webSettings = myWebView.getSettings();
 
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setGeolocationEnabled(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setMediaPlaybackRequiresUserGesture(false);
         webSettings.setUseWideViewPort(true);
 
+        myWebView.setWebChromeClient(new MyWebChromeClient());
         myWebView.loadUrl("https://m.lizard.net");
     }
 
