@@ -1,4 +1,4 @@
-package nelenschuurmans.lizard;
+package com.nens.bui;
 
 import android.webkit.GeolocationPermissions;
 import android.webkit.PermissionRequest;
