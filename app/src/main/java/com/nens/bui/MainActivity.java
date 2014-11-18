@@ -1,11 +1,8 @@
 package com.nens.bui;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -28,18 +25,25 @@ public class MainActivity extends Activity {
         }
 
         myWebView = (WebView) findViewById(R.id.webView);
-
-
         WebSettings webSettings = myWebView.getSettings();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            webSettings.setMediaPlaybackRequiresUserGesture(false);
+        }
 
         webSettings.setJavaScriptEnabled(true);
         webSettings.setGeolocationEnabled(true);
         webSettings.setDomStorageEnabled(true);
-        webSettings.setMediaPlaybackRequiresUserGesture(false);
+
         webSettings.setUseWideViewPort(true);
 
         myWebView.setWebChromeClient(new MyWebChromeClient());
-        myWebView.loadUrl("https://m.lizard.net");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            myWebView.loadUrl("https://m.lizard.net");
+        } else {
+            myWebView.loadUrl("https://regenradar.lizard.net");
+        }
     }
 
 }

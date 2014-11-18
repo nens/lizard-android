@@ -7,8 +7,8 @@ android {
         applicationId 'com.nens.bui'
         minSdkVersion 8
         targetSdkVersion 21
-        versionCode 4
-        versionName "2.0"
+        versionCode 6
+        versionName "2.1"
     }
     buildTypes {
         release {
